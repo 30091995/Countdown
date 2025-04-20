@@ -16,7 +16,8 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: ../actions/install-dependecies
+      - name: ANNoying
+        uses: ../actions/install-dependecies
 
       - name: 🧪 Run unit tests
         run: pnpm run vitest
