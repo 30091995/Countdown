@@ -15,8 +15,9 @@ jobs:
     name: 🧱 Install Dependencies
     runs-on: ubuntu-latest
 
+    uses: ./.github/workflows/setup-pnpm.yml
+
     steps:
-      - uses: ./.github/actions/setup-pnpm
       - name: 📦 Install dependencies
         run: pnpm install
 
@@ -24,8 +25,9 @@ jobs:
     name: 🧪 Tests
     runs-on: ubuntu-latest
     needs: install-dependencies
+
+    uses: ./.github/workflows/setup-pnpm.yml
     steps:
-      - uses: ./.github/actions/setup-pnpm
       - name: 🧪 Run unit tests
         run: pnpm run vitest
 
@@ -34,8 +36,8 @@ jobs:
     runs-on: ubuntu-latest
     needs: tests
 
+    uses: ./.github/workflows/setup-pnpm.yml
     steps:
-      - uses: ./.github/actions/setup-pnpm
       - name: 🛠️ Build the app
         run: pnpm turbo run build
 
