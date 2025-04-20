@@ -17,6 +17,9 @@ jobs:
     needs: install-dependencies
 
     steps:
+      - name: Bla
+        uses: ./.github/actions/install-dependecies
+
       - name: 🧪 Run unit tests
         uses: ./.github/actions/install-dependecies
         run: pnpm run vitest
