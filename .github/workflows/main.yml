@@ -15,7 +15,19 @@ jobs:
     name: 🧱 Install Dependencies
     runs-on: ubuntu-latest
 
-    uses: ./.github/workflows/setup-pnpm.yml
+    steps:
+      - name: ⬇️ Checkout repo
+        uses: actions/checkout@v3
+
+      - name: 💾 Install pnpm
+        run: |
+          npm install --global pnpm
+          SHELL=bash pnpm setup
+          pnpm config set global-bin-dir /home/runner/.pnpm-global/bin
+          echo "/home/runner/.pnpm-global/bin" >> $GITHUB_PATH
+
+      - name: 📦 Install dependencies
+        run: pnpm install
 
   tests:
     name: 🧪 Tests
