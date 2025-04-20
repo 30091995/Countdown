@@ -21,3 +21,15 @@ jobs:
 
       - name: Build the app
         run: pnpm turbo run build
+
+      - name: Deploy to Vercel
+        run: |
+          pnpm add -g vercel
+          vercel --prod --confirm \
+            --token=$VERCEL_TOKEN \
+            --scope=$VERCEL_ORG_ID \
+            --project=$VERCEL_PROJECT
+        env:
+          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+          VERCEL_PROJECT: ${{ secrets.VERCEL_PROJECT }}
+          VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
