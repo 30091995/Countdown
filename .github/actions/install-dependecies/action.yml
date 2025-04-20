@@ -1,0 +1,22 @@
+name: Install dependencies
+description: Check out repo and Install dependecies
+
+runs:
+  using: "composite"
+
+  steps:
+    - name: ⬇️ Checkout repo
+      uses: actions/checkout@v3
+      shell: bash
+
+    - name: 💾 Install pnpm
+      run: |
+        npm install --global pnpm
+        SHELL=bash pnpm setup
+        pnpm config set global-bin-dir /home/runner/.pnpm-global/bin
+        echo "/home/runner/.pnpm-global/bin" >> $GITHUB_PATH
+      shell: bash
+
+    - name: 📦 Install dependencies
+      run: pnpm install
+      shell: bash
