@@ -15,7 +15,8 @@ jobs:
 
       - name: 💾 Install pnpm
         run: npm install --global pnpm \
-          && SHELL=bash pnpm setup
+          && SHELL=bash pnpm setup \
+          && pnpm config set global-bin-dir /home/runner/.pnpm-global/bi
 
       - name: Install dependencies
         run: pnpm install
