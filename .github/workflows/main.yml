@@ -16,7 +16,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: ./.github/actions/install-dependecies
+      - uses: ../actions/install-dependecies
 
       - name: 🧪 Run unit tests
         run: pnpm run vitest
