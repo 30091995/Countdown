@@ -29,8 +29,7 @@ jobs:
         run: pnpm install -g vercel
 
       - name: Deploy to Vercel
-        run: vercel --prod --confirm --token=$VERCEL_TOKEN --scope=$VERCEL_ORG_ID --project=$VERCEL_PROJECT
+        run: vercel --prod --confirm --token=$VERCEL_TOKEN --scope=$VERCEL_ORG_ID
         env:
           VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
-          VERCEL_PROJECT: ${{ secrets.VERCEL_PROJECT }}
           VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
