@@ -15,7 +15,7 @@ jobs:
     name: 🧱 Install Dependencies
     runs-on: ubuntu-latest
 
-    uses: ./.github/workflows/setup-pnpm.yml # Reusable workflow
+    uses: ./.github/workflows/setup-pnpm
 
   tests:
     name: 🧪 Tests
