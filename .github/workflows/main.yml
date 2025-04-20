@@ -15,8 +15,7 @@ jobs:
 
       - name: 💾 Install pnpm
         run: npm install --global pnpm \
-          && SHELL=bash pnpm setup \
-          && source /root/.bashrc
+          && SHELL=bash pnpm setup
 
       - name: 🛠️ Setup pnpm global bin directory
         run: pnpm setup
