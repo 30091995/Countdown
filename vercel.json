@@ -1,6 +1,6 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
-  "outputDirectory": "dist",
+  "outputDirectory": "./apps/test/dist",
   "installCommand": "pnpm install --prefix=../..",
   "buildCommand": "turbo run build",
   "ignoreCommand": "if [ \"$VERCEL_GIT_COMMIT_REF\" = \"main\" ]; then echo 'Skipping build on main branch'; exit 0; fi"
