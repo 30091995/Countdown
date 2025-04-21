@@ -23,7 +23,7 @@ jobs:
         uses: ./.github/actions/install-dependecies
 
       - name: 🧪 Run unit tests
-        run: pnpm run vitest
+        run: turbo run test
 
   deploy:
     name: 🚀 Deploy to Vercel
@@ -31,6 +31,12 @@ jobs:
     needs: tests
 
     steps:
+      - name: 🛎️ Checkout repo
+        uses: actions/checkout@v3
+
+      - name: 📦 Install dependencies (local action)
+        uses: ./.github/actions/install-dependecies
+
       - name: 🛠️ Build the app
         run: pnpm turbo run build
 
