@@ -23,7 +23,7 @@ jobs:
         uses: ./.github/actions/install-dependecies
 
       - name: 🧪 Run unit tests
-        run: turbo run test
+        run: pnpm turbo run test
 
   deploy:
     name: 🚀 Deploy to Vercel
